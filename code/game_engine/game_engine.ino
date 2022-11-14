@@ -33,6 +33,7 @@ void setup(){
   lcd.createChar(0, smallCactus);
   lcd.home();
 }
+
 void loop(){
   lcd.setCursor(position, 1);
   lcd.write(byte(0));
