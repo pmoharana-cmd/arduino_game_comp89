@@ -90,7 +90,7 @@ void input() { //gets the input from the button and runs every tick
       delay(200);
       removeObstacle(map1[i], 1);
       map1[i] = mapLength;
-      objects[i] = random(0, 3);
+      objects[i] = random(0, 3); //randomly changes obstacle after first cycle
     }
   } 
   state = digitalRead(buttonPin);
