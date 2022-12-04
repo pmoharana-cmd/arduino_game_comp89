@@ -50,7 +50,7 @@ byte dinosaur[] = {
 int buttonPin = 2;
 const int mapLength = 16;
 int position = 16;
-int objectMap[mapLength];
+int objectMap[mapLength]; //legacy and for testing
 int numOfObjects = 6;
 bool firstRun[] = {LOW, HIGH, HIGH, HIGH, HIGH, HIGH};
 int map1[] = {16, 12, 11, 8, 5, 1};
@@ -80,8 +80,8 @@ void setup(){
 }
 
 void loop(){ 
-  input();
-  gameEngine();
+  input(); //inputs are tracked in this function. Runs every tick
+  gameEngine(); //calculations and actuations happen side by side. Runs every certain amount of ticks determined by the speed variable.
 }
 
 void input() { //gets the input from the button and runs every tick
@@ -169,18 +169,18 @@ void updateScore() { //updates the score on the display during gameplay
 void displayObstacle(int symbol, int position, int level) { //displays an object given a symbol value, position, and level (Does impact map)
   lcd.setCursor(position, level);
   lcd.write(byte(symbol));
-  objectMap[position] = 1;
+  //objectMap[position] = 1; code used for previous version 
 }
 
 void removeObstacle(int position, int level) { //removes an object given a position and level (Does not impact map)
   lcd.setCursor(position, level);
   lcd.print(" ");
-  objectMap[position] = 0;
+  //objectMap[position] = 0; code used for previous version
 }
 
 void displayObject(int symbol, int position, int level) { //displays an object given a symbol value, position, and level (Does not impact map)
   lcd.setCursor(position, level);
-  lcd.write(byte(symbol));
+  lcd.write(bytesymbol));
 }
 
 void removeObject(int position, int level) { //removes an object given a position and level (Does not impact map)
